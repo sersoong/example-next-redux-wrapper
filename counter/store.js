@@ -1,4 +1,6 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunkMiddleware from "redux-thunk";
 
 const initialCount = {
     count:0
@@ -6,7 +8,8 @@ const initialCount = {
 
 export const actionTypes = {
     INCREMENT:'INCREMENT',
-    DECREMENT:'DECREMENT'
+    DECREMENT:'DECREMENT',
+    RESET:'RESET'
 }
 
 export const reducer = (state = initialCount,action) =>{
@@ -16,6 +19,8 @@ export const reducer = (state = initialCount,action) =>{
             return {count:count+1}
         case actionTypes.DECREMENT:
             return {count:count-1}
+        case actionTypes.RESET:
+            return initialCount
         default: 
             return state
     }
@@ -29,6 +34,10 @@ export const decrementCount = () => dispatch =>{
     return dispatch({type:actionTypes.DECREMENT})
 }
 
+export const resetCount = () => dispatch =>{
+    return dispatch({type:actionTypes.RESET})
+}
+
 export default function initializeStore (initialState = initialCount) {
-    return createStore(reducer,initialState)
+    return createStore(reducer,initialState,composeWithDevTools(applyMiddleware(thunkMiddleware)))
 }

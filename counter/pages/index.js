@@ -1,8 +1,8 @@
 import React from 'react'
+import Counter from '../components/counter';
 
 const Home = () => (
-  <div>
-  </div>
+  <Counter/>
 )
 
 export default Home
