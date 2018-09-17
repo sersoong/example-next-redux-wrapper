@@ -1,4 +1,3 @@
-import React,{ Component } from "react";
 import { createStore } from "redux";
 
 const reducer = (state={foo:''},action) =>{
