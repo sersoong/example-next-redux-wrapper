@@ -1,5 +1,6 @@
 {
-  "name": "create-next-example-app",
+  "name": "simple_example",
+  "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",

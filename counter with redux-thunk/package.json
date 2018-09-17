@@ -1,5 +1,6 @@
 {
-  "name": "create-next-example-app",
+  "name": "counter_with_redux-thunk",
+  "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",
